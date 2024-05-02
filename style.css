@@ -75,7 +75,7 @@ nav {
     width: 100%;
     background-color: var(--background-1);
     display: grid;
-    z-index: 1000; /* Un valor más alto que el del objeto 3D */
+    z-index: 1000;
 }
 
 .lateral-menu-button, .lateral-menu {
