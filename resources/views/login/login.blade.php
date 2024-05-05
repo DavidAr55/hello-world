@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-md-12 mg-top-25">
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control" id="input_email" name="input_email" type="email" placeholder="" value="" required/>
+                                <input class="form-control" id="input_email" name="input_email" type="password" placeholder="" value="" required/>
                                 <label for="input_email">Ingresa tu contraseña</label>
                             </div>
                         </div>
