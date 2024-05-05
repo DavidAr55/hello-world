@@ -306,6 +306,29 @@ nav {
     cursor: pointer;
 }
 
+
+.button-9 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+    border: none;
+    background-color: var(--color-13);
+    color: var(--color-1);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.button-9:hover {
+    background-color: var(--color-4);
+    transition: all .3s;
+}
+
+
 .nav-info-bottom {
     width: 100%;
     height: auto;
@@ -673,6 +696,7 @@ nav {
 .h1-f1, .h2-f1, .h3-f1, .h4-f1, .h5-f1 {
     font-family: 'Formula 1', sans-serif;
     color: var(--color-8);
+    font-weight: bolder;
 }
 
 .h2-f1 {
@@ -745,13 +769,14 @@ nav {
     display: grid;
     grid-template-columns: 50% 20% 30%;
     gap: 20px;
+    
     align-items: center;
 }
 
 .header-ide-title {
     font-family: 'Cascadia';
     color: var(--color-1);
-    font-size: 14px;
+    font-size: 16px;
     padding: 0 10px;
 }
 
@@ -770,25 +795,6 @@ nav {
 .header-ide-copy button:hover {
     cursor: pointer;
     color: var(--color-1);
-    transition: all .3s;
-}
-
-.header-ide-assistant button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 5px 10px;
-    border: none;
-    background-color: var(--color-13);
-    color: var(--color-1);
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all .3s;
-}
-
-.header-ide-assistant button:hover {
-    background-color: var(--color-4);
     transition: all .3s;
 }
 

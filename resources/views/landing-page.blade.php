@@ -23,12 +23,12 @@
             <div class="landing-ide">
                 <div class="header-ide">
                     <div class="container-title-header-ide">
-                        <img src="{{ asset('images/cpp-icon.png') }}" id="c++ icon">
+                        <img src="{{ asset('images/cpp-icon.png') }}" alt="c++ icon">
                         <div class="header-ide-grid-container">
                             <div class="header-ide-title">serie-fibonacci.cpp</div>
                             <div class="header-ide-copy"><button id="copyButton"><i class="fa-regular fa-clone"></i> Copiar código</button></div>
                             <div class="header-ide-assistant">
-                                <button class="button">
+                                <button class="button-9">
                                     <svg fill="var(--color-1)" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
