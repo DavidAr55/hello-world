@@ -11,3 +11,7 @@ Route::get('/inicio', function () {
 Route::get('/iniciar-sesion', function () {
     return view('login.login');
 });
+
+Route::get('/registro', function () {
+    return view('login.sing-up');
+});

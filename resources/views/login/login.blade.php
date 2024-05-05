@@ -17,13 +17,13 @@
                         <div class="col-md-12 mg-top-25">
                             <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control" id="input_email" name="input_email" type="email" placeholder="" value="" required/>
-                                <label for="input_email">Ingresa tu correo electrónico o usuario</label>
+                                <label for="input_email">Correo electrónico o usuario</label>
                             </div>
                         </div>
                         <div class="col-md-12 mg-top-25">
                             <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control" id="input_password" name="input_password" type="password" placeholder="" value="" required/>
-                                <label for="input_password">Ingresa tu contraseña</label>
+                                <label for="input_password">Contraseña</label>
                             </div>
                         </div>
                         <p class="mg-top-25">Olvidaste tu <a href="">contraseña</a>?</p>
