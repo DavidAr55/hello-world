@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     typeHelloWorld();
+    toggleSelectionSingUp('plan-2');
 });
 
 
@@ -38,20 +39,20 @@ $(document).ready(function () {
 });
 
 // Inicializa ACE Editor
-var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.session.setMode("ace/mode/c_cpp");
+var editor_header = ace.edit("editor-preview-header");
+editor_header.setTheme("ace/theme/monokai");
+editor_header.session.setMode("ace/mode/c_cpp");
 
 // Agrega la extensión de autocompletado de C++
 ace.require("ace/ext/language_tools");
-editor.setOptions({
+editor_header.setOptions({
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true
 });
 
 // Establece el contenido inicial
-editor.setValue(
+editor_header.setValue(
 `#include <iostream>
 
 // Función para calcular la serie de Fibonacci
@@ -74,10 +75,10 @@ int main() {
 }`
 );
 
-editor.gotoLine(4);
+editor_header.gotoLine(4);
 
 // Ajusta el tamaño de la fuente
-editor.setFontSize("16px");
+editor_header.setFontSize("16px");
 
 
 // Función para copiar el código al portapapeles
@@ -111,3 +112,58 @@ function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     section.scrollIntoView({ behavior: 'smooth' });
 }
+
+function toggleSelectionSingUp(buttonId) {
+    var buttons = document.getElementsByClassName("sing-up-checkable-button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("selected");
+        buttons[i].querySelector("h3").classList.remove("selected");
+    }
+    var selectedButton = document.getElementById(buttonId);
+    selectedButton.classList.add("selected");
+    selectedButton.querySelector("h3").classList.add("selected");
+}
+
+function redirectTo(url) {
+    location.href = url;
+}
+
+
+// Inicializa ACE Editor
+var editor_practice = ace.edit("editor-preview-practice");
+editor_practice.setTheme("ace/theme/monokai");
+editor_practice.session.setMode("ace/mode/c_cpp");
+
+// Agrega la extensión de autocompletado de C++
+ace.require("ace/ext/language_tools");
+editor_practice.setOptions({
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true
+});
+
+// Establece el contenido inicial
+editor_practice.setValue(
+`#include <iostream>
+
+int main() {
+    // Se le solicita al usuario que ingrese el rango [a, b]
+
+    std::cout << “Ingrese el rango [a, b]:”;
+    int a, b, sun = 0; 
+    std::cin >> a >> b;
+
+    for (int i = a; i <= b; ++i) {
+        if (i % 2 == 0) {
+            sum += i;
+        }
+    }
+
+    return 0;
+}`
+);
+
+editor_practice.gotoLine(4);
+
+// Ajusta el tamaño de la fuente
+editor_practice.setFontSize("16px");

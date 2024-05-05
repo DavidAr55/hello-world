@@ -35,7 +35,7 @@
                 <div class="container-info-gradiant">
                     <h2>¿Nuevo en Hello World?</h2>
                     <h2>¡Registrate gratis!</h2>
-                    <button class="button-7 mg-top-25">Registrarse</button>
+                    <button class="button-7 mg-top-25" onclick="redirectTo('registro')">Registrarse</button>
                 </div>
             </div>
         </section>

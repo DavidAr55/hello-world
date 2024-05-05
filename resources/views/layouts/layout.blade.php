@@ -40,8 +40,8 @@
                 <li><a href="javascript:scrollToSection('planes')"    >Planes</a></li>      
             </ul>
             <ul>
-                <li><button class="button-2" style="margin-bottom: 0px;" style="margin: 15px 0 15px 0;">Iniciar sesión</button></li>
-                <li><button class="button-2" style="margin-top: 0px;" style="margin: 15px 0 15px 0;"><i class="fa-solid fa-right-to-bracket"></i> Registrarse</button></li>
+                <li><button class="button-2" onclick="redirectTo('registro')" style="margin-bottom: 0px;" style="margin: 15px 0 15px 0;">Iniciar sesión</button></li>
+                <li><button class="button-2" onclick="redirectTo('iniciar-sesion')" style="margin-top: 0px;" style="margin: 15px 0 15px 0;"><i class="fa-solid fa-right-to-bracket"></i> Registrarse</button></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Documentación</a></li>
                 <li><a href="#">Auyda</a></li>
@@ -52,8 +52,8 @@
     <nav>
         <div class="nav-info-top">
             <ul>
-                <li><button class="button-4"><i class="fa-solid fa-right-to-bracket"></i> Registrarse</button></li>
-                <li><button class="button-1">Iniciar sesión</button></li>
+                <li><button class="button-4" onclick="redirectTo('registro')"><i class="fa-solid fa-right-to-bracket"></i> Registrarse</button></li>
+                <li><button class="button-1" onclick="redirectTo('iniciar-sesion')">Iniciar sesión</button></li>
                 <li style="font-size: 26px; font-weight: normal; margin-top: -1px;">|</li>
                 <li><a href="#">Ayuda</a></li>
                 <li><a href="#">Documentación</a></li>
