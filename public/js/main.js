@@ -82,12 +82,12 @@ editor_header.setFontSize("16px");
 
 
 // Función para copiar el código al portapapeles
-function copyCodeToClipboard() {
-    var copyButton = document.getElementById("copyButton");
+function copyCodeToClipboard(editorName) {
+    var copyButton = document.getElementById("copyButton-" + editorName);
     var originalIcon = copyButton.innerHTML;
     var originalText = copyButton.innerText;
 
-    var code = editor.getValue();
+    var code = window["editor_" + editorName].getValue();
     navigator.clipboard.writeText(code)
         .then(() => {
             copyButton.innerHTML = '<i class="fas fa-copy"></i> Código copiado';
@@ -104,8 +104,16 @@ function copyCodeToClipboard() {
         });
 }
 
-// Agrega un listener al botón "Copiar código"
-document.getElementById("copyButton").addEventListener("click", copyCodeToClipboard);
+// Agrega un listener al botón "Copiar código" para el editor_header
+document.getElementById("copyButton-header").addEventListener("click", function() {
+    copyCodeToClipboard("header");
+});
+
+// Agrega un listener al botón "Copiar código" para el editor_sample
+document.getElementById("copyButton-sample").addEventListener("click", function() {
+    copyCodeToClipboard("sample");
+});
+
 
 
 function scrollToSection(sectionId) {
@@ -130,20 +138,20 @@ function redirectTo(url) {
 
 
 // Inicializa ACE Editor
-var editor_practice = ace.edit("editor-preview-practice");
-editor_practice.setTheme("ace/theme/monokai");
-editor_practice.session.setMode("ace/mode/c_cpp");
+var editor_sample = ace.edit("editor-preview-practice");
+editor_sample.setTheme("ace/theme/monokai");
+editor_sample.session.setMode("ace/mode/c_cpp");
 
 // Agrega la extensión de autocompletado de C++
 ace.require("ace/ext/language_tools");
-editor_practice.setOptions({
+editor_sample.setOptions({
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true
 });
 
 // Establece el contenido inicial
-editor_practice.setValue(
+editor_sample.setValue(
 `#include <iostream>
 
 int main() {
@@ -163,7 +171,7 @@ int main() {
 }`
 );
 
-editor_practice.gotoLine(4);
+editor_sample.gotoLine(4);
 
 // Ajusta el tamaño de la fuente
-editor_practice.setFontSize("16px");
+editor_sample.setFontSize("16px");

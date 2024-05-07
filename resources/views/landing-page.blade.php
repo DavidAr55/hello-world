@@ -17,7 +17,7 @@
             </div>
             <div class="landing-head-info-buttons">
                 <button class="button-5">¡Empezar Ahora!</button>
-                <button class="button-6" style="margin-left: 18px;">Video tutorial</button>
+                <button class="button-6" style="margin-left: 18px;" onclick="redirectTo('https://www.youtube.com/channel/UCeT5varh-07VRRhHi4MIx2g')">Video tutorial</button>
             </div>
         </div>
         <div class="landing-ide">
@@ -26,9 +26,9 @@
                     <img src="{{ asset('images/cpp-icon.png') }}" alt="c++ icon">
                     <div class="header-ide-grid-container">
                         <div class="header-ide-title">serie-fibonacci.cpp</div>
-                        <div class="header-ide-copy"><button id="copyButton"><i class="fa-regular fa-clone"></i> Copiar código</button></div>
+                        <div class="header-ide-copy"><button id="copyButton-header"><i class="fa-regular fa-clone"></i> Copiar código</button></div>
                         <div class="header-ide-assistant">
-                            <button class="button-9">
+                            <button class="button-9 ff-Formula-1">
                                 <svg fill="var(--color-1)" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -65,7 +65,7 @@
                 <p>Innumerables guías dispersas. Navegando a través de lecciones anticuadas. Sumergido en océano de información abrumadora sobre programación.</p>
                 <img src="{{ asset('images/learn-with-out-Hello-World.png') }}" alt="Aprendizaje sin Hello World">
             </div>
-            <div class="comparation">
+            <div class="comparation border-selectet-1">
                 <h2 class="h2-f1">Con <span style="background: linear-gradient(to right, #E61650, #D438BD); color: transparent; -webkit-background-clip: text; background-clip: text;">Hello World</span></h2>
                 <p>Simplifica tu aprendizaje con contenido actualizado y seleccionado. Domina la codificación con claridad y confianza a tu ritmo.</p>
                 <img src="{{ asset('images/learn-with-Hello-World.png') }}" class="pd-top-25" alt="Aprendizaje con Hello World">
@@ -117,7 +117,7 @@
                             <img src="{{ asset('images/cpp-icon.png') }}" alt="c++ icon">
                             <div class="header-ide-grid-container">
                                 <div class="header-ide-title">suma-de-dos-numeros.cpp</div>
-                                <div class="header-ide-copy"><button id="copyButton"><i class="fa-regular fa-clone"></i> Copiar código</button></div>
+                                <div class="header-ide-copy ff-Formula-1"><button id="copyButton-sample"><i class="fa-regular fa-clone"></i> Copiar código</button></div>
                                 <div class="header-ide-assistant">
                                     <button class="button-9">
                                         <svg fill="var(--color-1)" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
@@ -176,6 +176,59 @@
     
     <section class="section-landingpage" id="contenido">
         <h1 class="h1-inter pd-h1 center-text">Contenido actualizado</h1>
+        <div class="landing-container-content">
+            <div class="landing-content-header">
+                <div class="landing-content-header-title">
+                    <h1 class="ff-Inter mg-bottom-25">Introducción a C++</h1>
+                    <h5 class="ff-Inter mg-bottom-15">0% Completado</h5>
+                </div>
+                <div class="landing-content-header-buttons">
+                    <button class="button-6">Omitir</button>
+                    <button class="button-5">Ir a practicar</button>
+                </div>
+            </div>
+            <div class="landing-content-body mg-top-25 ">
+                <div class="ff-Inter">
+                    <h5>Tabla de contenido</h5>
+                    <div class="landing-content-text">
+                        <ul class="landing-chapters-list">
+                            <li><a href="">Conceptos básicos de programación</a></li>
+                            <li><a href="">Algoritmos</a></li>
+                            <li><a href="">Estructuras de control</a></li>
+                            <li><a href="">Tipos de datos</a></li>
+                            <li><a href="">Variables y constantes</a></li>
+                            <li><a href="">Operadores</a></li>
+                            <li><a href="">Funciones y procedimientos</a></li>
+                            <li><a href="">Estructuras de datos básicas</a></li>
+                            <li><a href="">Pensamiento algorítmico</a></li>
+                            <li><a href="">Principios de diseño de algoritmos eficientes</a></li>
+                        </ul>
+                    </div>
+                    <div class="landing-contentet-list-bottom">
+                        <p>Proporcionado por:</p>
+                        <b class="color-2">cppreference</b>
+                    </div>
+                </div>
+                <div class="ff-Inter">
+                    <p><i class="fa-regular fa-clock"></i> 7 minutos de lectura</p>
+                    <div class="landing-content-text">
+                        <h3>Conceptos básicos de programación</h3>
+                        <p>La programación es el arte de escribir instrucciones que una computadora puede seguir para realizar una tarea específica. Es como darle un conjunto de pasos a una máquina para que realice una acción deseada. Para entender la lógica detrás de la programación, es importante comprender algunos conceptos básicos:</p>                        
+                        <ul>
+                            <li><strong>Secuencia de instrucciones:</strong> En programación, las instrucciones se ejecutan en secuencia, una después de la otra. Esto significa que el orden en que escribas las instrucciones es crucial, ya que determina el flujo de ejecución del programa.</li>                            
+                            <li><strong>Estructuras de control:</strong> A medida que los programas se vuelven más complejos, es necesario tener la capacidad de tomar decisiones y repetir acciones. Las estructuras de control, como las declaraciones if, else y los bucles (for, while), permiten controlar el flujo de ejecución del programa.</li>                            
+                            <li><strong>Abstracción:</strong> La abstracción es un concepto fundamental en programación que implica simplificar la complejidad al ocultar detalles innecesarios y centrarse en los aspectos relevantes para el problema en cuestión. Esto se logra mediante el uso de funciones y procedimientos, que permiten dividir el código en bloques más pequeños y manejables.</li>                            
+                            <li><strong>Resolución de problemas:</strong> La programación es, en su núcleo, una forma de resolver problemas. Implica identificar un problema, descomponerlo en pasos más pequeños y luego escribir un conjunto de instrucciones para resolver cada paso de manera sistemática.</li>                            
+                            <li><strong>Lenguajes de programación:</strong> Existen varios lenguajes de programación, cada uno con su propia sintaxis y reglas. Algunos ejemplos comunes son Python, Java, C++, JavaScript, entre otros. Cada lenguaje tiene sus propias fortalezas y debilidades, y es importante elegir el más adecuado para el tipo de problema que estás tratando de resolver.</li>
+                            <li><strong>Depuración y prueba:</strong> Es inevitable que surjan errores (bugs) en los programas. La depuración es el proceso de encontrar y corregir estos errores. La prueba también es importante para asegurarse de que el programa funcione como se espera en una variedad de situaciones.</li>
+                        </ul>
+                        <p>En resumen, la programación es un proceso creativo que implica pensar de manera lógica y sistemática para resolver problemas utilizando un lenguaje de programación específico. Es una habilidad valiosa en la era digital, ya que permite automatizar tareas, desarrollar software y crear soluciones innovadoras para una amplia gama de problemas.</p>
+                    </div>
+                    <button class="button-6" style="margin-top: 15px; padding: 10px 25px;">Siguiente Capitulo</button>
+                    <button class="button-5" style="margin-top: 15px; padding: 10px 25px;">Ayuda Del Asistente</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="section-landingpage mg-bottom-50" id="planes">
@@ -188,7 +241,7 @@
                     <p style="position: relative; top: 12px; left: 10px; color: var(--color-5);" class="ff-Helvetica">Para siempre</p>
                 </div>
                 <p class="ff-Helvetica">Para aquellos que quieran probar los conceptos básicos de Hello World</p>
-                <button class="button-12 ff-Inter fw-bolder mg-top-25 mg-bottom-25">¡Empezar Ahora!</button>
+                <button class="button-12 ff-Inter fw-bolder mg-top-25 mg-bottom-25" onclick="redirectTo('registro')">¡Empezar Ahora!</button>
                 <h4 class="ff-Inter fw-bolder">El plan basico incluye:</h4>
                 <ul class="plan-content-list">
                     <li><p class="ff-Helvetica"><i class="fa-regular fa-circle-check color-13"></i> Acceso a todo el plan de estudio.</p></li>
@@ -198,14 +251,14 @@
                     <li><p class="ff-Helvetica"><i class="fa-regular fa-circle-check color-13"></i> Anuncios.</p></li>
                 </ul>
             </div>
-            <div class="plan-column">
+            <div class="plan-column border-selectet-1">
                 <h2 class="h2-f1 fw-normal mg-bottom-50 color-2">VIP</h2>
                 <div style="display: flex;">
                     <h2 class="h2-f1 fw-normal color-2">$3.90</h2>
                     <p style="position: relative; top: 12px; left: 10px; color: var(--color-3);" class="ff-Helvetica">/ Mes</p>
                 </div>
                 <p class="ff-Helvetica">Ideal para estudiantes dedicados que desean axplotar su logica de programación </p>
-                <button class="button-13 ff-Inter fw-bolder mg-top-25 mg-bottom-25">¡Empezar Ahora!</button>
+                <button class="button-13 ff-Inter fw-bolder mg-top-25 mg-bottom-25" onclick="redirectTo('registro')">¡Empezar Ahora!</button>
                 <h4 class="ff-Inter fw-bolder">El plan basico incluye:</h4>
                 <ul class="plan-content-list">
                     <li><p class="ff-Helvetica"><i class="fa-regular fa-circle-check color-13"></i> Acceso ilimitado al asistente virtual.</p></li>
@@ -221,7 +274,7 @@
                     <p style="position: relative; top: 12px; left: 10px; color: var(--color-5);" class="ff-Helvetica">/ Año / Por usuario</p>
                 </div>
                 <p class="ff-Helvetica">Ideal para instituciones educativas que quieren brindar un apoyo a sus estudiantes.</p>
-                <button class="button-12 ff-Inter fw-bolder mg-top-25 mg-bottom-25">¡Empezar Ahora!</button>
+                <button class="button-12 ff-Inter fw-bolder mg-top-25 mg-bottom-25" onclick="redirectTo('registro')">¡Empezar Ahora!</button>
                 <h4 class="ff-Inter fw-bolder">El plan basico incluye:</h4>
                 <ul class="plan-content-list">
                     <li><p class="ff-Helvetica"><i class="fa-regular fa-circle-check color-13"></i> 100 licencias listas para compartir.</p></li>

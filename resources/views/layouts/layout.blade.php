@@ -105,11 +105,11 @@
                 <h3 style="line-height: 40px;">Redes Sociales</h3>
                 <p>Ponte en contacto con nosotros a través de las redes sociales.</p>
                 <div class="row-social">
-                    <button class="button-3 nb" style="margin: 20px 0;"><i class="fa-brands fa-facebook-f"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;"><i class="fa-brands fa-instagram"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;"><i class="fa-brands fa-twitter"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;"><i class="fa-brands fa-youtube"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;"><i class="fa-brands fa-patreon"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" ><i class="fa-brands fa-facebook-f"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" ><i class="fa-brands fa-instagram"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" ><i class="fa-brands fa-twitter"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectTo('https://www.youtube.com/channel/UCeT5varh-07VRRhHi4MIx2g')"><i class="fa-brands fa-youtube"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" ><i class="fa-brands fa-patreon"></i></button>
                 </div>
             </div>
             <div class="footer-column f-del"></div>
