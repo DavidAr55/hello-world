@@ -26,7 +26,7 @@
                                 <label for="input_password">Contraseña</label>
                             </div>
                         </div>
-                        <p class="mg-top-25">Olvidaste tu <a href="">contraseña</a>?</p>
+                        <p class="mg-top-25">Olvidaste tu <a href="recuperar-contraseña">contraseña</a>?</p>
                         <button class="button-8">Iniciar sesión</button>
                     </form>
                 </div>
