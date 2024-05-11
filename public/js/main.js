@@ -175,3 +175,4 @@ editor_sample.gotoLine(4);
 
 // Ajusta el tamaño de la fuente
 editor_sample.setFontSize("16px");
+
