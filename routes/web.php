@@ -17,6 +17,6 @@ Route::get('/registro', function () {
     return view('login.sing-up');
 });
 
-Route::get('/recuperacion-contraseña', function () {
+Route::get('/recuperar-contraseña', function () {
     return view('login.recovery');
 });

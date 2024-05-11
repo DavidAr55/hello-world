@@ -30,14 +30,13 @@
                 <div class="container-info-gradiant">
                     <h2>Introduce tu código de verificación</h2>
                     <form action="" class="container-recovery">
-                        <input class="form-control input-recovery" id="input_recovery_1" name="input_recovery_1" type="text" pattern="[0-9]" required/>
-                        <input class="form-control input-recovery" id="input_recovery_2" name="input_recovery_2" type="text" pattern="[0-9]" required/>
-                        <input class="form-control input-recovery" id="input_recovery_3" name="input_recovery_3" type="text" pattern="[0-9]" required/>
-                        <input class="form-control input-recovery" id="input_recovery_4" name="input_recovery_4" type="text" pattern="[0-9]" required/>
-                        <input class="form-control input-recovery" id="input_recovery_5" name="input_recovery_5" type="text" pattern="[0-9]" required/>
-
+                        <input class="form-control input-recovery" id="input-recovery-1" name="input-recovery-1" type="number" required maxlength="1"/>
+                        <input class="form-control input-recovery" id="input-recovery-2" name="input-recovery-2" type="number" required maxlength="1"/>
+                        <input class="form-control input-recovery" id="input-recovery-3" name="input-recovery-3" type="number" required maxlength="1"/>
+                        <input class="form-control input-recovery" id="input-recovery-4" name="input-recovery-4" type="number" required maxlength="1"/>
+                        <input class="form-control input-recovery" id="input-recovery-5" name="input-recovery-5" type="number" required maxlength="1"/>
                     </form>
-                    <button class="button-7 mg-top-25" onclick="">Validar código</button>
+                    <button class="button-7 mg-top-25 mg-bottom-5">Validar código</button>
                 </div>
             </div>
         </section>
