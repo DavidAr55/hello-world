@@ -21,7 +21,7 @@
                                 <label for="input_email">Correo electrónico</label>
                             </div>
                         </div>
-                        <p class="mg-top-25">Volver al <a href="">inicio de sesíon</a></p>
+                        <p class="mg-top-25">Volver al <a href="iniciar-sesion">inicio de sesíon</a></p>
                         <button class="button-8">Enviar al correo</button>
                     </form>
                 </div>
