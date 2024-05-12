@@ -19,6 +19,42 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleSelectionSingUp('plan-2');
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('.input-recovery');
+    
+    inputs.forEach(function(input, index) {
+        input.addEventListener('input', function(event) {
+            var inputValue = event.target.value;
+            // Verificar si se ha ingresado un dígito
+            if (inputValue.length > 0) {
+                // Si se ha ingresado un dígito y es el último campo de entrada
+                if (index === inputs.length - 1) {
+                    // Borrar el contenido del campo y mantener solo el último carácter
+                    event.target.value = inputValue[inputValue.length - 1];
+                } else {
+                    // Mover el enfoque al siguiente campo de entrada
+                    inputs[index + 1].focus();
+                }
+            }
+        });
+    });
+
+    // Manejar el evento pegar en el documento
+    document.addEventListener('paste', function(event) {
+        // Obtener el texto pegado
+        var pastedText = (event.clipboardData || window.clipboardData).getData('text');
+        // Dividir el texto en caracteres individuales
+        var characters = pastedText.split('');
+        // Asignar cada carácter a un campo de entrada
+        inputs.forEach(function(input, index) {
+            if (characters[index]) {
+                input.value = characters[index];
+            }
+        });
+        // Detener el comportamiento predeterminado de pegado
+        event.preventDefault();
+    });
+});
 
 $(document).ready(function () {
     $('.menu-toggle').click(function () {
@@ -175,3 +211,4 @@ editor_sample.gotoLine(4);
 
 // Ajusta el tamaño de la fuente
 editor_sample.setFontSize("16px");
+

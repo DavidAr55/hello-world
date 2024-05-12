@@ -1287,7 +1287,43 @@ nav {
     font-size: 14px;
     transition: all .3s;
 }
-  
+
+/*--------------------------------------------------------------------------*/
+/*------------------------Recuperar contraseña------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+.container-recovery {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-recovery .input-recovery {
+    margin: 20px 5px;
+    margin-bottom: 40px;
+    height: 60px;
+    text-align: center;
+
+    background-color: transparent;
+    border-radius: var(--border-radius-1);
+    border: 2.5px solid var(--color-1);
+
+    font-family: 'Formula 1', sans-serif;
+    font-size: 20px;
+    
+    color: var(--color-1);
+}
+
+.input-recovery::-webkit-inner-spin-button, 
+.input-recovery::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.input-recovery { -moz-appearance:textfield; }
+
 /*--------------------------------------------------------------------------*/
 /*------------------------           ---------------------------------------*/
 /*--------------------------------------------------------------------------*/

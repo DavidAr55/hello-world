@@ -8,6 +8,7 @@ Route::get('/inicio', function () {
     return view('landing-page');
 });
 
+//Rutas de carpeta login
 Route::get('/iniciar-sesion', function () {
     return view('login.login');
 });
@@ -26,4 +27,8 @@ Route::get('/error403', function () {
 
 Route::get('/error500', function () {
     return view('Error.error500');
+});
+
+Route::get('/recuperar-contraseña', function () {
+    return view('login.recovery');
 });
