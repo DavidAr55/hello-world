@@ -25,6 +25,9 @@
 
     <!-- Agregar Estilo CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/david.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hottaco.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/rodri.css') }}">
 </head>
 <body>
     <!-- Navbar Section -->
@@ -133,6 +136,9 @@
       
     <!-- Scripts Section -->
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/david.js') }}"></script>
+    <script src="{{ asset('js/hottaco.js') }}"></script>
+    <script src="{{ asset('js/rodri.js') }}"></script>
 
     <!-- Scripts de Bootstap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
