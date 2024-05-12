@@ -32,3 +32,9 @@ Route::get('/500', function () {
 Route::get('/recuperar-contraseña', function () {
     return view('login.recovery');
 });
+
+Route::get('/cambiar-contraseña', function () {
+    return view('login.change-password');
+});
+
+//

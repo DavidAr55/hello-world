@@ -1318,11 +1318,25 @@ nav {
 
 .input-recovery::-webkit-inner-spin-button, 
 .input-recovery::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+    -webkit-appearance: none; 
+    margin: 0; 
 }
 
 .input-recovery { -moz-appearance:textfield; }
+
+/*--------------------------------------------------------------------------*/
+/*------------------------Cambiar Contraseña--------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+.container-li-password{
+    margin: 20px;
+    padding: 15px;
+    text-align: left;
+    font-family: 'Formula 1', sans-serif;
+    font-size: 17px; 
+    list-style-position: outside;
+    line-height: 35px;
+}
 
 /*--------------------------------------------------------------------------*/
 /*------------------------           ---------------------------------------*/
