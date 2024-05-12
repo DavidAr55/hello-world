@@ -17,6 +17,18 @@ Route::get('/registro', function () {
     return view('login.sing-up');
 });
 
+Route::get('/error404', function () {
+    return view('Error.error404');
+});
+
+Route::get('/error403', function () {
+    return view('Error.error403');
+});
+
+Route::get('/error500', function () {
+    return view('Error.error500');
+});
+
 Route::get('/recuperar-contraseña', function () {
     return view('login.recovery');
 });
