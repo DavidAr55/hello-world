@@ -17,16 +17,16 @@ Route::get('/registro', function () {
     return view('login.sing-up');
 });
 
-Route::get('/error404', function () {
-    return view('Error.error404');
+Route::get('/404', function () {
+    return view('errors.404');
 });
 
-Route::get('/error403', function () {
-    return view('Error.error403');
+Route::get('/403', function () {
+    return view('errors.403');
 });
 
-Route::get('/error500', function () {
-    return view('Error.error500');
+Route::get('/500', function () {
+    return view('errors.500');
 });
 
 Route::get('/recuperar-contraseña', function () {

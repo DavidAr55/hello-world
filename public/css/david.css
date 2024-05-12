@@ -1,1 +1,111 @@
 /* Todo el CSS de David siguiente como plantilla y usando las variables predefinidas */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'Formula 1';
+    src: url('../fonts/Formula1-Regular-1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cascadia';
+    src: url('../fonts/Cascadia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-1: #FFFFFF;
+    --background-2: #F8F9FA;
+    --background-3: #272535;
+    --background-4: #1E1F29;
+    --background-5: #14141E;
+    --background-6: #121417;
+    --background-7: #0D0D11;
+    --background-8: #000000;
+    --background-9: #202020;
+    --background-10: #FBF7F7;
+    --background-11: #272822;
+
+    --color-1: #FFFFFF;
+    --color-2: #E61A4F;
+    --color-3: #911444;
+    --color-4: #195AA6;
+    --color-5: #CFCFD2;
+    --color-6: #646464;
+    --color-7: #7C828D;
+    --color-8: #292D34;
+    --color-9: #000000;
+    --color-10: #666f8d;
+    --color-11: #272822;
+    --color-12: ;
+    --color-13: #007bff;
+    --color-14: #666F8D;
+    --color-15: #DCE9FF;
+    --color-16: #5F58FF;
+    --color-17: #D438BD;
+    --color-18: #5BD9EF;
+    --color-19: #AE76C6;
+    --color-20: #E6DB74;
+    --color-21: #32C766;
+    --color-22: #145C33;
+
+    --position-triangle: -310px;
+
+    --border-radius-1: 5px;
+    --border-radius-2: 15px;
+    --border-radius-3: 25px;
+}
+
+body {
+    width: 100%;
+    font-family: 'Formula 1', sans-serif;
+    overflow-x: hidden;
+    background-color: var(--background-2);
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 2px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select,
+input[type="number"] {
+    background-color: var(--background-10);
+}
+
