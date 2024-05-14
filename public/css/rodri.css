@@ -72,6 +72,7 @@
     --border-radius-3: 25px;
 }
 
+
 body {
     width: 100%;
     font-family: 'Formula 1', sans-serif;
@@ -79,6 +80,9 @@ body {
     background-color: var(--background-2);
 }
 
+.mi-div {
+    background-color: #F8F9FA; /* Aquí especificas el color que deseas */
+}
 *::-webkit-scrollbar {
     width: 5px;
 }
@@ -109,3 +113,155 @@ input[type="number"] {
     background-color: var(--background-10);
 }
 
+
+/*error 404*/
+
+.container-error-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    position: relative;
+    background-color: #1E1F29;
+    /* Asignar el background de color negro */
+    
+}
+
+.container-error-404 h1,
+.container-error-404 h2,
+.container-error-404 h6 {
+    margin: 10px 0;
+    text-align: center;
+    color: white;
+    margin-left: -300px;
+}
+
+.container-error-404 h1 {
+    font-size: 5vw;
+    margin-top: 5vh;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.container-error-404 h2 {
+    font-size: 2.5vw;
+}
+
+.container-error-404 h6,
+.container-error-404 a{
+    font-size: 1vw;
+    text-decoration: underline;
+    margin-left: -160px;/*sjustar hacia la izquierda*/
+    padding-top: 20px;/*sjustar hacia arriba*/
+    color: white;
+    text-decoration: underline;
+}
+
+.container-error-404 .letters {
+    color: rgb(230, 17, 79);
+}
+
+/* Efecto */
+.image-container-effect img {
+    max-width: 30%;
+    height: auto;
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+
+/* Astro */
+.image-container-astro img {
+    max-width: 12%;
+    height: auto;
+    position: absolute;
+    top: 68%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+
+
+/*error 403*/
+
+.container-error-403 {
+    text-align: center;
+    padding: 1px;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #1E1F29;/*asignar el background de color negro*******************************/
+}
+.container-error-403 h1 {
+    font-size: 5em;
+    margin-top: 20vh;
+    color: white;
+    font-weight: bold; /* Hace el texto más grueso */
+}
+.container-error-403 h2 {
+    font-size: 3em;
+    color: white;
+}
+.container-error-403 a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: underline;
+}
+
+.container-error-403 h6 {
+    font-size: 1vw;
+    text-decoration: underline;
+    margin-left: -20px;/*sjustar hacia la izquierda*/
+    padding-top: 20px;/*sjustar hacia arriba*/
+    color: white;
+    text-decoration: underline;
+}
+
+.container-error-403 .letters {
+    color: rgb(230, 17, 79);
+}
+
+
+/* error 500*/
+.container-error-500 {
+    text-align: center;
+    padding: 1px;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #1E1F29;/*asignar el background de color negro*******************************/
+}
+.container-error-500 h1 {
+    font-size: 5em;
+    margin-top: 20vh;/*espacio entre barra de navegacion y texto*/
+    color: white;
+    font-weight: bold; /* Hace el texto más grueso */
+}
+.container-error-500 h2 {
+    font-size: 2.5em;
+    color: white;
+}
+.container-error-500 h3 {
+    font-size: 1.6em;
+    color: white;
+    padding-top: 20px;/*sjustar hacia arriba*/
+}
+.container-error-500 a {
+    font-size: 1.1em;
+    color: white;
+    text-decoration: underline;
+}
+
+.container-error-500 h6 {
+    font-size: 1vw;
+    text-decoration: underline;
+    margin-left: -20px;/*sjustar hacia la izquierda*/
+    padding-top: 20px;/*sjustar hacia arriba*/
+    color: white;
+    text-decoration: underline;
+}
+.container-error-500 .letters {
+    color: rgb(230, 17, 79);
+}
