@@ -37,4 +37,8 @@ Route::get('/cambiar-contraseña', function () {
     return view('login.change-password');
 });
 
+Route::get('/contenido', function () {
+    return view('application.content');
+});
+
 //
