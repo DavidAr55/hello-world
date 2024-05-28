@@ -265,3 +265,69 @@ input[type="number"] {
 .container-error-500 .letters {
     color: rgb(230, 17, 79);
 }
+
+
+/*material didactico**********************************************/
+
+/*primera seccion*/
+.section-material {
+    margin: auto;
+    padding-top: 50px;
+    width: 1200px;
+    height: 300px; /* ajusta texto introduccion a c++ */
+}
+
+/* Títulos y párrafos */
+.section-material h2,
+.section-material h5,
+.section-material h6,
+.section-material p {
+    padding: 10px 0; /* Añadir separación vertical */
+}
+
+/*cuadro descripcion*/
+.description-container {
+    width: 55%;
+    height: 40%; /* Cambiado para ajustar la altura automáticamente */
+    padding: 20px;
+    background-color: var(--background-1);
+    border-radius: var(--border-radius-2);
+    border: 1px solid var(--color-5);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/*raya*/
+
+.description-rect {
+    border-bottom: 4.5px solid var(--color-2);
+    margin: auto;
+    width: 1200px;
+    height: 30px;/*raya*/
+}
+
+/*animacion de bolas*/
+
+#bol-1, #bol-2, #bol-4, #bol-5 {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#bol-1 {
+    width: 400px;
+    height: auto;
+    top: 600px;
+    right: -100px;
+    filter: drop-shadow(2px 2px 12px rgba(0, 0, 0, 0.7));
+    animation: moveUpDown 7s ease-in infinite alternate;
+}
+
+/* Alineación a la derecha  */
+.right-align {
+    text-align: right;
+}
+
+
+
+
+/*material didactico**********************************************/
