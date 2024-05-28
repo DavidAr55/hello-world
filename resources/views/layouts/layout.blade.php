@@ -102,17 +102,17 @@
             <div class="footer-column">
                 <h3 style="line-height: 40px;">Contacto</h3>
                 <p>¿Tines preguntas?</p>
-                <button class="button-3" style="margin: 45px 0;">Formulario de contacto</button>
+                <button id="contact-button" class="button-3" style="margin: 45px 0; height: 58px;">Formulario de contacto</button>
             </div>
             <div class="footer-column">
                 <h3 style="line-height: 40px;">Redes Sociales</h3>
                 <p>Ponte en contacto con nosotros a través de las redes sociales.</p>
                 <div class="row-social">
-                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectTo('https://www.facebook.com/profile.php?id=61559612453689')"><i class="fa-brands fa-facebook-f"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectTo('#')"><i class="fa-brands fa-instagram"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectTo('https://twitter.com/HelloWorldMx')"><i class="fa-brands fa-twitter"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectTo('https://www.youtube.com/channel/UCeT5varh-07VRRhHi4MIx2g')"><i class="fa-brands fa-youtube"></i></button>
-                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectTo('#')"><i class="fa-brands fa-patreon"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectToBlank('https://www.facebook.com/profile.php?id=61559612453689')"><i class="fa-brands fa-facebook-f"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectToBlank('https://www.instagram.com/hello_w0rld_dev/')"><i class="fa-brands fa-instagram"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectToBlank('https://twitter.com/HelloWorldMx')"><i class="fa-brands fa-twitter"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectToBlank('https://www.youtube.com/channel/UCeT5varh-07VRRhHi4MIx2g')"><i class="fa-brands fa-youtube"></i></button>
+                    <button class="button-3 nb" style="margin: 20px 0;" onclick="redirectToBlank('https://patreon.com/HelloWorld346?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink')"><i class="fa-brands fa-patreon"></i></button>
                 </div>
             </div>
             <div class="footer-column f-del"></div>
@@ -120,10 +120,9 @@
         <div class="footer-container">
             <div class="footer-column">
                 <h3 style="line-height: 40px;">Empresa</h3>
-                <ul>
+                <ul style="padding: 0;">
                     <li><a href="#">Hello World</a></li>
                     <li><a href="#">Mision, Visión y Valores</a></li>
-                    <li><a href="#">Respaldado por Ceti</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -136,11 +135,17 @@
       
     <!-- Scripts Section -->
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/user-dashboard.js') }}"></script>
+    <script src="{{ asset('js/canvas-lessons.js') }}"></script>
+    <script src="{{ asset('js/swal2-alerts.js') }}"></script>
     <script src="{{ asset('js/david.js') }}"></script>
     <script src="{{ asset('js/hottaco.js') }}"></script>
     <script src="{{ asset('js/rodri.js') }}"></script>
 
     <!-- Scripts de Bootstap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Scripts de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

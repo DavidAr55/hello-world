@@ -172,6 +172,10 @@ function redirectTo(url) {
     location.href = url;
 }
 
+function redirectToBlank(url) {
+    window.open(url, "_blank");
+}
+
 
 // Inicializa ACE Editor
 var editor_sample = ace.edit("editor-preview-practice");

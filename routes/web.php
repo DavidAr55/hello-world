@@ -8,7 +8,6 @@ Route::get('/inicio', function () {
     return view('landing-page');
 });
 
-//Rutas de carpeta login
 Route::get('/iniciar-sesion', function () {
     return view('login.login');
 });
@@ -35,6 +34,10 @@ Route::get('/recuperar-contraseña', function () {
 
 Route::get('/cambiar-contraseña', function () {
     return view('login.change-password');
+});
+
+Route::get('/panel', function () {
+    return view('user.dashboard');
 });
 
 //
