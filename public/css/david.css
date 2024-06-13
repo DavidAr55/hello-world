@@ -41,6 +41,8 @@
     --background-9: #202020;
     --background-10: #FBF7F7;
     --background-11: #272822;
+    --background-12: #111317;
+    --background-13: #292D3E;
 
     --color-1: #FFFFFF;
     --color-2: #E61A4F;
@@ -218,3 +220,122 @@ input[type="number"] {
 .user-status-info, .user-status-info * {
     user-select: none;
 } 
+
+.general-ide-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-9);
+}
+
+.split-pane {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pane {
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    background-color: var(--background-13);
+    color: var(--color-1);
+    font-family: 'Cascadia';
+}
+
+.left-pane {
+    width: 35%;
+}
+
+.right-pane {
+    width: 65%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.divider {
+    background-color: #ccc;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    cursor: ew-resize;
+    position: absolute;
+    z-index: 800;
+}
+
+.horizontal-divider {
+    width: 5px;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+    transform: translateX(-50%);
+}
+
+.split-pane-vertical {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.top-pane {
+    height: 70%;
+}
+
+.bottom-pane {
+    height: 30%;
+}
+
+.vertical-divider {
+    height: 5px;
+    width: 100%;
+    background-color: #ccc;
+    cursor: ns-resize;
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+}
+
+.pane-content {
+    padding: 15px 5px;
+    width: 100%;
+    height: auto;
+}
+
+.pane-header {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid var(--color-7);
+    background-color: var(--background-9);
+    font-size: 14px;
+    display: -ms-inline-grid;
+}
+
+.pane-body {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid var(--color-7);
+    background-color: var(--color-11);
+    font-size: 14px;
+}
+
+#exercise-instruction {
+    color: var(--color-2);
+}
+
+#math-text {
+    font-style: italic;
+    color: var(--color-18);
+}
+
+.ide-height {
+    min-height: 91vh;
+}
+
+.fr {
+    float: right;
+}

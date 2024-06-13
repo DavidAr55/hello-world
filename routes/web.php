@@ -40,6 +40,10 @@ Route::get('/panel', function () {
     return view('user.dashboard');
 });
 
+Route::get('/ejercicio', function () {
+    return view('user.exercise');
+});
+
 Route::get('/contenido', function () {
     return view('application.content');
 });

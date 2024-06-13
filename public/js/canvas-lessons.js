@@ -1,139 +1,252 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let canvas = document.getElementById("branch-canvas");
-    let context = canvas.getContext("2d");
+class Graph {
+    constructor() {
+        this.adjacencyList = {};
+        this.positions = {};
+    }
 
+    addVertex(vertex, type, level, title, description, x = 0, y = 0) {
+        if (!this.adjacencyList[vertex]) {
+            this.adjacencyList[vertex] = [];
+            this.positions[vertex] = { x, y, type, level, title, description };
+        }
+    }
+
+    addEdge(vertex, ...nodes) {
+        if (!this.adjacencyList[vertex]) {
+            this.addVertex(vertex);
+        }
+        for (let node of nodes) {
+            if (node === null) continue;
+            if (!this.adjacencyList[node]) {
+                this.addVertex(node);
+            }
+            if (!this.adjacencyList[vertex].includes(node)) {
+                this.adjacencyList[vertex].push(node);
+                this.adjacencyList[node].push(vertex);
+            }
+        }
+    }
+
+    showGraph() {
+        for (let vertex in this.adjacencyList) {
+            console.log(`${vertex} -> ${this.adjacencyList[vertex].join(', ')}`);
+        }
+    }
+}
+
+class NodeRoundedRect {
+    constructor(xPos, yPos, width, height, radius, type, level, title, description, image) {
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.width = width;
+        this.height = height;
+        this.radius = radius;
+        this.border_color = "#EEEDED";
+        this.linear_gradient = [];
+        this.type = type;
+        this.level = level;
+        this.title = title;
+        this.description = description;
+        this.image = image;
+    }
+
+    handleClick() {
+        if (this.type === "exercise") {
+            window.location.href = "/ejercicio"; // Redirección a la vista de ejercicio
+        } else if (this.type === "theory") {
+            window.location.href = "/contenido"; // Redirección a la vista de contenido
+        }
+    }
+
+    draw(ctx, offsetX, offsetY) {
+        ctx.save();
+
+        this.linear_gradient = this.type == "exercise" ? ["#D24ABE", "#6258FE"] : ["#62C7F2", "#5F58FF"];
+
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 4;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "rgba(0, 0, 0, 0.25)";
+
+        ctx.beginPath();
+        ctx.moveTo(this.xPos - offsetX + this.radius, this.yPos - offsetY);
+        ctx.lineTo(this.xPos - offsetX + this.width - this.radius, this.yPos - offsetY);
+        ctx.quadraticCurveTo(this.xPos - offsetX + this.width, this.yPos - offsetY, this.xPos - offsetX + this.width, this.yPos - offsetY + this.radius);
+        ctx.lineTo(this.xPos - offsetX + this.width, this.yPos - offsetY + this.height - this.radius);
+        ctx.quadraticCurveTo(this.xPos - offsetX + this.width, this.yPos - offsetY + this.height, this.xPos - offsetX + this.width - this.radius, this.yPos - offsetY + this.height);
+        ctx.lineTo(this.xPos - offsetX + this.radius, this.yPos - offsetY + this.height);
+        ctx.quadraticCurveTo(this.xPos - offsetX, this.yPos - offsetY + this.height, this.xPos - offsetX, this.yPos - offsetY + this.height - this.radius);
+        ctx.lineTo(this.xPos - offsetX, this.yPos - offsetY + this.radius);
+        ctx.quadraticCurveTo(this.xPos - offsetX, this.yPos - offsetY, this.xPos - offsetX + this.radius, this.yPos - offsetY);
+        ctx.closePath();
+
+        ctx.strokeStyle = this.border_color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        var gradient = ctx.createLinearGradient(this.xPos - offsetX, this.yPos - offsetY, this.xPos - offsetX + this.width, this.yPos - offsetY + this.height);
+        gradient.addColorStop(0, this.linear_gradient[0]);
+        gradient.addColorStop(1, this.linear_gradient[1]);
+
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        if (this.image.complete) {
+            ctx.drawImage(this.image, (this.xPos - offsetX + 7.5), (this.yPos - offsetY + 5), 180, 154);
+        } else {
+            this.image.onload = () => {
+                ctx.drawImage(this.image, (this.xPos - offsetX + 7.5), (this.yPos - offsetY + 5), 180, 154);
+            };
+        }
+
+        const descRectHeight = 80;
+        const descRectRadius = this.radius;
+        const descRectX = this.xPos - offsetX;
+        const descRectY = this.yPos - offsetY + this.height - descRectHeight;
+        const descRectWidth = this.width;
+
+        ctx.beginPath();
+        ctx.moveTo(descRectX + descRectRadius, descRectY + descRectHeight);
+        ctx.lineTo(descRectX + descRectWidth - descRectRadius, descRectY + descRectHeight);
+        ctx.quadraticCurveTo(descRectX + descRectWidth, descRectY + descRectHeight, descRectX + descRectWidth, descRectY + descRectHeight - descRectRadius);
+        ctx.lineTo(descRectX + descRectWidth, descRectY);
+        ctx.lineTo(descRectX, descRectY);
+        ctx.lineTo(descRectX, descRectY + descRectHeight - descRectRadius);
+        ctx.quadraticCurveTo(descRectX, descRectY + descRectHeight, descRectX + descRectRadius, descRectY + descRectHeight);
+        ctx.closePath();
+
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fill();
+        ctx.strokeStyle = this.border_color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        const lines = this.level.split('\n');
+        const lineHeight = 20;
+        const lineSpacing = 10;
+        const totalLineHeight = lineHeight + lineSpacing;
+
+        ctx.fillStyle = this.border_color;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = "20px 'Formula 1', Arial";
+
+        lines.forEach((line, index) => {
+            let color;
+            if (line.includes("Básico"))          color = "#3FD630";
+            else if (line.includes("Intermedio")) color = "#92D630";
+            else if (line.includes("Avanzado"))   color = "#D6C730";
+            else if (line.includes("Experto"))    color = "#D67430";
+            else if (line.includes("Hacker"))     color = "#D63092";
+
+            ctx.fillStyle = color;
+            ctx.fillText(
+                line,
+                this.xPos - offsetX + (this.width / 2) + 80,
+                this.yPos - offsetY + (this.height / 2) - 5 + (index - (lines.length - 1) / 2) * totalLineHeight
+            );
+        });
+
+        // Show title and description
+        ctx.fillStyle = "#000000";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = "bold 16px Arial";
+        ctx.fillText(this.title, this.xPos - offsetX + this.width / 2, this.yPos - offsetY + this.height - 60);
+        ctx.font = "14px Arial";
+        ctx.fillText(this.description, this.xPos - offsetX + this.width / 2, this.yPos - offsetY + this.height - 40);
+
+        ctx.restore();
+    }
+}
+
+function createGraph() {
+    const myGraph = new Graph();
+
+    // Agregamos nodos con identificadores únicos pero con textos que pueden repetirse
+    let title = "Título del nodo";
+    let description = "Descripción del nodo";
+
+    myGraph.addVertex("A", "theory", "Nivel\nBásico", title, description, 400, 250);
+    myGraph.addVertex("B", "exercise", "Nivel\nBásico", title, description, 800, -150);
+    myGraph.addVertex("C", "theory", "Nivel\nIntermedio", title, description, 800, 250);
+    myGraph.addVertex("D", "exercise", "Nivel\nAvanzado", title, description, 800, 650);
+    myGraph.addVertex("E", "exercise", "Nivel\nIntermedio", title, description, 1200, -150);
+    myGraph.addVertex("F", "exercise", "Nivel\nAvanzado", title, description, 1300, 250);
+    myGraph.addVertex("G", "exercise", "Nivel\nExperto", title, description, 1700, 250);
+    myGraph.addVertex("H", "exercise", "Nivel\nHacker", title, description, 2200, -150);
+    
+    myGraph.addVertex("I", "theory", "Nivel\nBásico", title, description, 1200, 650);
+
+    myGraph.addEdge("A", "B", "C", "D");
+    myGraph.addEdge("B", "A");
+    myGraph.addEdge("C", "A");
+    myGraph.addEdge("D", "A");
+    myGraph.addEdge("E", "C", "H");
+    myGraph.addEdge("F", "C");
+    myGraph.addEdge("G", "F");
+    myGraph.addEdge("H", "G");
+    myGraph.addEdge("I", null);
+
+    console.log("Grafo:");
+    myGraph.showGraph();
+
+    return myGraph;
+}
+
+function drawGraph(graph, ctx, offsetX, offsetY, image) {
+    for (let vertex in graph.adjacencyList) {
+        for (let neighbor of graph.adjacencyList[vertex]) {
+            const start = graph.positions[vertex];
+            const end = graph.positions[neighbor];
+            ctx.beginPath();
+            ctx.moveTo((start.x + 150) - offsetX, (start.y + 120) - offsetY);
+            ctx.lineTo((end.x + 150) - offsetX, (end.y + 120) - offsetY);
+            ctx.lineWidth = 7.5;
+            ctx.strokeStyle = "#E61A4F";
+            ctx.stroke();
+        }
+    }
+
+    for (let vertex in graph.positions) {
+        const pos = graph.positions[vertex];
+        const rect = new NodeRoundedRect(pos.x, pos.y, 300, 240, 15, pos.type, pos.level, pos.title, pos.description, image);
+        rect.draw(ctx, offsetX, offsetY);
+    }
+}
+
+function resizeCanvas(canvas) {
     const container = canvas.parentNode;
     canvas.width = container.clientWidth;
     canvas.height = container.clientHeight;
+}
 
-    class RoundedRect {
-        constructor(xPos, yPos, width, height, radius, color, text) {
-            this.xPos = xPos + (350);
-            this.yPos = yPos;
-            this.width = width;
-            this.height = height;
-            this.radius = radius;
-            this.color = color;
-            this.text = text;
-        }
+const canvas = document.getElementById('branch-canvas');
+const ctx = canvas.getContext('2d');
 
-        draw(context, offsetX, offsetY) {
-            // Guardar el estado actual del contexto
-            context.save();
-            
-            // Aplicar sombra al rectángulo principal
-            context.shadowOffsetX = 0;
-            context.shadowOffsetY = 4;
-            context.shadowBlur = 15;
-            context.shadowColor = "rgba(0, 0, 0, 0.25)";
-            
-            context.beginPath();
-            
-            // Trazar borde del rectángulo redondeado
-            context.moveTo(this.xPos - offsetX + this.radius, this.yPos - offsetY);
-            context.lineTo(this.xPos - offsetX + this.width - this.radius, this.yPos - offsetY);
-            context.quadraticCurveTo(this.xPos - offsetX + this.width, this.yPos - offsetY, this.xPos - offsetX + this.width, this.yPos - offsetY + this.radius);
-            context.lineTo(this.xPos - offsetX + this.width, this.yPos - offsetY + this.height - this.radius);
-            context.quadraticCurveTo(this.xPos - offsetX + this.width, this.yPos - offsetY + this.height, this.xPos - offsetX + this.width - this.radius, this.yPos - offsetY + this.height);
-            context.lineTo(this.xPos - offsetX + this.radius, this.yPos - offsetY + this.height);
-            context.quadraticCurveTo(this.xPos - offsetX, this.yPos - offsetY + this.height, this.xPos - offsetX, this.yPos - offsetY + this.height - this.radius);
-            context.lineTo(this.xPos - offsetX, this.yPos - offsetY + this.radius);
-            context.quadraticCurveTo(this.xPos - offsetX, this.yPos - offsetY, this.xPos - offsetX + this.radius, this.yPos - offsetY);
-            context.closePath();
-            
-            context.strokeStyle = this.color;
-            context.lineWidth = 1;
-            context.stroke();
-            
-            // Crear degradado
-            var degradado = context.createLinearGradient(this.xPos - offsetX, this.yPos - offsetY, this.xPos - offsetX + this.width, this.yPos - offsetY + this.height);
-            degradado.addColorStop(0, "#D24ABE");
-            degradado.addColorStop(1, "#6258FE");
-            
-            // Llenar con degradado
-            context.fillStyle = degradado;
-            context.fill();
-            
-            // Restaurar el estado de sombra para dibujar el rectángulo blanco sin sombra
-            context.restore();
-            
-            // Calcular las coordenadas del rectángulo de descripción
-            const descRectHeight = 80;
-            const descRectRadius = this.radius;
-            const descRectX = this.xPos - offsetX;
-            const descRectY = this.yPos - offsetY + this.height - descRectHeight;
-            const descRectWidth = this.width;
-            
-            // Dibujar el rectángulo blanco sin sombra
-            context.beginPath();
-            context.moveTo(descRectX + descRectRadius, descRectY + descRectHeight);
-            context.lineTo(descRectX + descRectWidth - descRectRadius, descRectY + descRectHeight);
-            context.quadraticCurveTo(descRectX + descRectWidth, descRectY + descRectHeight, descRectX + descRectWidth, descRectY + descRectHeight - descRectRadius);
-            context.lineTo(descRectX + descRectWidth, descRectY);
-            context.lineTo(descRectX, descRectY);
-            context.lineTo(descRectX, descRectY + descRectHeight - descRectRadius);
-            context.quadraticCurveTo(descRectX, descRectY + descRectHeight, descRectX + descRectRadius, descRectY + descRectHeight);
-            context.closePath();
-            
-            context.fillStyle = "#FFFFFF";
-            context.fill();
-            context.strokeStyle = this.color;
-            context.lineWidth = 1;
-            context.stroke();
-            
-            // Calcular el ancho del texto y ajustar su posición para que no se salga del contenedor
-            const textWidth = context.measureText(this.text).width;
-            const maxTextWidth = this.width - 20; // 20px de espacio en cada lado
-            let adjustedText = this.text;
-            if (textWidth > maxTextWidth) {
-                // Truncar el texto si es demasiado ancho
-                adjustedText = this.text.substring(0, Math.floor((maxTextWidth / textWidth) * this.text.length)) + '...';
-            }
-        
-            // Dibujar texto
-            context.fillStyle = this.color;
-            context.textAlign = "center";
-            context.textBaseline = "middle";
-            context.font = "20px 'Formula 1', Arial";
-            context.fillText(adjustedText, this.xPos - offsetX + this.width / 2, this.yPos - offsetY + this.height / 2);
-        }               
-    }
+const image = new Image();
+image.src = "./images/assets/exercise-cpp.png";
 
-    let counter = 0;
-    let allRects = [];
-    const containerNames = ["Introducción a C++", "Entrada y salida básica (cin y cout)", "Variables y tipos de datos", "Escribir tu nombre", "Area de un triangulo", "Pares e impares"];
+image.onload = () => {
+    const myGraph = createGraph();
 
-    for (let i = 0; i < 6; i++) {
-        let xCord = 350 * i;
-        let yCord = 250;
-        let myRect = new RoundedRect(xCord, yCord, 300, 240, 15, "#EEEDED", containerNames[i]);
-        allRects.push(myRect);
-        counter++;
-    }
-
-    // Variables para manejar el arrastre con el mouse
     let isDragging = false;
     let lastX = 0;
     let lastY = 0;
     let offsetX = 0;
     let offsetY = 0;
 
-    // Dibujar contenido en el canvas
     function draw() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Dibujar todos los rectángulos
-        allRects.forEach(rect => rect.draw(context, offsetX, offsetY));
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawGraph(myGraph, ctx, offsetX, offsetY, image);
     }
 
-    // Función para manejar el inicio del arrastre con el mouse
     function startDragging(e) {
         isDragging = true;
         lastX = e.clientX;
         lastY = e.clientY;
     }
 
-    // Función para manejar el arrastre con el mouse
     function drag(e) {
         if (isDragging) {
             const deltaX = e.clientX - lastX;
@@ -149,17 +262,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Función para manejar el final del arrastre con el mouse
     function stopDragging() {
         isDragging = false;
     }
 
-    // Eventos de mouse para el arrastre
     canvas.addEventListener("mousedown", startDragging);
     canvas.addEventListener("mousemove", drag);
     canvas.addEventListener("mouseup", stopDragging);
     canvas.addEventListener("mouseleave", stopDragging);
 
-    // Dibujar la primera vez
+    window.addEventListener('load', () => {
+        resizeCanvas(canvas);
+        draw();
+    });
+
+    window.addEventListener('resize', () => {
+        resizeCanvas(canvas);
+        draw();
+    });
+
     draw();
-});
+};
