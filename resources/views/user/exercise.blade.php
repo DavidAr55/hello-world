@@ -99,7 +99,7 @@
                                         <div class="sample-terminal-title">Terminal de salida</div>
                                         <div class="sample-terminal-run-time">Tiempo de ejecución: 0.21 ms</div>
                                         <div class="sample-terminal-run">
-                                            <button class="button-11">
+                                            <button class="button-11" onclick="ejecutarCodigo()">
                                                 <i class="fa-solid fa-play"></i>
                                                 <span>Correr</span>
                                             </button>
@@ -139,29 +139,58 @@
 
     // Establece el contenido inicial
     ide_exercise.setValue(
-    `#include <iostream>
+`#include <iostream>
+using namespace std;
 
-    int main() {
-        // Se le solicita al usuario que ingrese el rango [a, b]
+int main() {
+    // Se le solicita al usuario que ingrese el rango [a, b]
 
-        std::cout << “Ingrese el rango [a, b]:”;
-        int a, b, sun = 0; 
-        std::cin >> a >> b;
+    std::cout << “Ingrese el rango [a, b]:”;
+    int a, b, sun = 0; 
+    std::cin >> a >> b;
 
-        for (int i = a; i <= b; ++i) {
-            if (i % 2 == 0) {
-                sum += i;
-            }
+    for (int i = a; i <= b; ++i) {
+        if (i % 2 == 0) {
+            sum += i;
         }
+    }
 
-        return 0;
-    }`
+    return 0;
+}`
     );
 
     ide_exercise.gotoLine(4);
 
     // Ajusta el tamaño de la fuente
     ide_exercise.setFontSize("16px");
+</script>
+<script>
+    function ejecutarCodigo() {
+        var codigo = ide_exercise.getValue(); // Obtener el código del editor ACE
+
+        // Hacer la solicitud al backend usando Fetch API o Axios
+        fetch("{{ route('ejercicio.ejecutar') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": "{{ csrf_token() }}"
+            },
+            body: JSON.stringify({ codigo: codigo })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Actualizar el terminal de salida con la respuesta
+            var terminalOutput = document.querySelector('.sample-terminal-container .code-output');
+            terminalOutput.innerHTML = `
+                <p><span id="code_text">~$</span> Resultado:</p>
+                <pre>${data.salida}</pre>
+                <p><span id="code_text">~$</span> Tiempo de ejecución: ${data.tiempo_ejecucion}</p>
+            `;
+        })
+        .catch(error => console.error('Error al ejecutar el código:', error));
+
+        console.log(codigo);
+    }
 </script>
 
 @endsection

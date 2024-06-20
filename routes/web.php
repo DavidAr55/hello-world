@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExerciseController;
 
 Route::redirect('/', '/inicio');
 
@@ -43,6 +44,8 @@ Route::get('/panel', function () {
 Route::get('/ejercicio', function () {
     return view('user.exercise');
 });
+
+Route::post('/ejercicio/ejecutar', [ExerciseController::class, 'ejecutar'])->name('ejercicio.ejecutar');
 
 Route::get('/contenido', function () {
     return view('application.content');
